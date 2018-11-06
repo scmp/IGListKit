@@ -63,6 +63,7 @@ IGListBatchContext
  Identifiers are constructed with the `IGListReusableViewIdentifier` function.
  */
 @property (nonatomic, strong) NSMutableSet<NSString *> *registeredCellIdentifiers;
+@property (nonatomic, strong) NSMutableSet<NSString *> *registeredIdentifiers;
 @property (nonatomic, strong) NSMutableSet<NSString *> *registeredNibNames;
 @property (nonatomic, strong) NSMutableSet<NSString *> *registeredSupplementaryViewIdentifiers;
 @property (nonatomic, strong) NSMutableSet<NSString *> *registeredSupplementaryViewNibNames;

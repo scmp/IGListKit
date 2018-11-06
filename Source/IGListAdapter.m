@@ -95,6 +95,7 @@
         // dump old registered section controllers in the case that we are changing collection views or setting for
         // the first time
         _registeredCellIdentifiers = [NSMutableSet new];
+        _registeredIdentifiers = [NSMutableSet new];
         _registeredNibNames = [NSMutableSet new];
         _registeredSupplementaryViewIdentifiers = [NSMutableSet new];
         _registeredSupplementaryViewNibNames = [NSMutableSet new];
@@ -957,8 +958,8 @@
     IGAssert(collectionView != nil, @"Dequeueing cell of class %@ with reuseIdentifier %@ from section controller %@ without a collection view at index %li", NSStringFromClass(cellClass), reuseIdentifier, sectionController, (long)index);
     NSString *identifier = IGListReusableViewIdentifier(cellClass, nil, reuseIdentifier);
     NSIndexPath *indexPath = [self indexPathForSectionController:sectionController index:index usePreviousIfInUpdateBlock:NO];
-    if (![self.registeredCellIdentifiers containsObject:identifier]) {
-        [self.registeredCellIdentifiers addObject:identifier];
+    if (![self.registeredIdentifiers containsObject:identifier]) {
+        [self.registeredIdentifiers addObject:identifier];
         [collectionView registerClass:cellClass forCellWithReuseIdentifier:identifier];
     }
     return [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
